@@ -6,7 +6,7 @@ export interface Command {
 }
 
 
-export class Light {
+export class LightYellow {
 
     public on(): string {
         return 'on'
@@ -17,7 +17,7 @@ export class Light {
     }
 }
 var value:number=0
-export class RedLight {
+export class LightRed {
 
     public on(): string {
         return `red${value}`
@@ -27,23 +27,23 @@ export class RedLight {
         return "off"
     }
 
-    public increaseLuminosity(): string {
+    public increase_brightness(): string {
         value++;
         return `red${value}`
     }
 
-    public decreaseLuminosity(): string {
+    public decrease_brightness(): string {
         value--;
         return `red${value}`
 
     }
 }
 
-export class LightOnCommand implements Command {
+export class CommandLightOn implements Command {
 
-    private _light: Light
+    private _light: LightYellow
 
-    constructor(_light: Light) {
+    constructor(_light: LightYellow) {
         this._light = _light;
     }
 
@@ -54,10 +54,10 @@ export class LightOnCommand implements Command {
 
 }
 
-export class LightOffCommand implements Command {
-    private _light: Light
+export class CommandLightOff implements Command {
+    private _light: LightYellow
 
-    constructor(_light: Light) {
+    constructor(_light: LightYellow) {
         this._light = _light
     }
 
@@ -68,10 +68,10 @@ export class LightOffCommand implements Command {
 }
 
 
-export class RedLightOn implements Command {
-    light: RedLight;
+export class CommandLightRedOn implements Command {
+    light: LightRed;
 
-    constructor(light: RedLight) {
+    constructor(light: LightRed) {
         this.light = light;
     }
 
@@ -81,10 +81,10 @@ export class RedLightOn implements Command {
 
 }
 
-export class RedLightOff implements Command {
-    light: RedLight;
+export class CommandLightRedOff implements Command {
+    light: LightRed;
 
-    constructor(light: RedLight) {
+    constructor(light: LightRed) {
         this.light = light;
     }
 
@@ -95,27 +95,27 @@ export class RedLightOff implements Command {
 }
 
 export class RedLightIncreaseLuminosity implements Command {
-    light: RedLight;
+    light: LightRed;
 
-    constructor(light: RedLight) {
+    constructor(light: LightRed) {
         this.light = light;
     }
 
     execute(): string {
-        return this.light.increaseLuminosity()
+        return this.light.increase_brightness()
     }
 
 }
 
 export class RedLightDecreaseLuminosity implements Command {
-    light: RedLight;
+    light: LightRed;
 
-    constructor(light: RedLight) {
+    constructor(light: LightRed) {
         this.light = light;
     }
 
     execute(): string {
-        return this.light.decreaseLuminosity()
+        return this.light.decrease_brightness()
     }
 
 }
