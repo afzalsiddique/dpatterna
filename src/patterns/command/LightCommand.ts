@@ -4,9 +4,12 @@ export interface Command {
     execute(): string
 
 }
+export interface Light{
+    on(): string
+    off(): string
+}
 
-
-export class LightYellow {
+export class LightYellow implements Light{
 
     public on(): string {
         return 'on'
@@ -17,7 +20,7 @@ export class LightYellow {
     }
 }
 var value:number=0
-export class LightRed {
+export class LightRed implements Light{
 
     public on(): string {
         return `red${value}`
