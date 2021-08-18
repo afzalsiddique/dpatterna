@@ -1,12 +1,12 @@
 import {
     LightYellow,
-    CommandLightOn,
-    CommandLightOff,
+    LightYellowOn,
+    LightYellowOff,
     LightRed,
-    CommandLightRedOn,
-    CommandLightRedOff,
-    RedLightIncreaseLuminosity,
-    RedLightDecreaseLuminosity,
+    LightRedOn,
+    LightRedOff,
+    LightRedIncreaseBrightness,
+    LightRedDecreaseBrightness,
     RemoteController,
     Command
 } from "../../patterns/command/LightCommand";
@@ -27,27 +27,27 @@ export function orderHandler(command: string): string {
 
     switch (command) {
         case "on":
-            result = redOn ? command_on_light(new CommandLightRedOn(new LightRed())) : command_on_light(new CommandLightOn(new LightYellow()))
+            result = redOn ? command_on_light(new LightRedOn(new LightRed())) : command_on_light(new LightYellowOn(new LightYellow()))
             break;
 
         case "off":
             redOn=false
-            result = redOn ? command_on_light(new CommandLightRedOff(new LightRed())) : command_on_light(new CommandLightOff(new LightYellow()))
+            result = redOn ? command_on_light(new LightRedOff(new LightRed())) : command_on_light(new LightYellowOff(new LightYellow()))
             break
 
         case "increase":
-            result=redOn?command_on_light(new RedLightIncreaseLuminosity(new LightRed())):command_on_light(new CommandLightOn(new LightYellow()))
+            result=redOn?command_on_light(new LightRedIncreaseBrightness(new LightRed())):command_on_light(new LightYellowOn(new LightYellow()))
 
             break
 
         case "decrease":
             console.log("decrease")
-            result =redOn?command_on_light(new RedLightDecreaseLuminosity(new LightRed())) : command_on_light(new CommandLightOn(new LightYellow()))
+            result =redOn?command_on_light(new LightRedDecreaseBrightness(new LightRed())) : command_on_light(new LightYellowOn(new LightYellow()))
             break
 
         case "red":
             redOn = true
-            result=redOn?command_on_light(new CommandLightRedOn(new LightRed())):command_on_light(new CommandLightOn(new LightYellow()))
+            result=redOn?command_on_light(new LightRedOn(new LightRed())):command_on_light(new LightYellowOn(new LightYellow()))
             break
         default:
 
