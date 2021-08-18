@@ -66,8 +66,8 @@
   <button class="on" on:click={()=>{changeCommand('on')}}>On</button>
   <button class="off" on:click={()=>{changeCommand('off')}}>Off</button>
 
-  <button class="increase-lum" on:click={()=>{changeCommand('increase')}}>+</button>
-  <button class="decrease-lum" on:click={()=>{changeCommand('decrease')}}>-</button>
+  <button class="increase-lum" on:click={()=>{changeCommand('increase_receiver')}}>+</button>
+  <button class="decrease-lum" on:click={()=>{changeCommand('decrease_receiver')}}>-</button>
 
   <button class="red-light" on:click={()=>{changeCommand('red')}}>Red</button>
 </div>

@@ -13,10 +13,8 @@ import {
 let redOn: boolean = false
 
 export function command_on_light(command: Command): string {
-
     const remoteController = new RemoteController();
     remoteController.setCommand(command)
-
     return remoteController.executeCommand()
 
 }
@@ -35,12 +33,11 @@ export function orderHandler(command: string): string {
             result = redOn ? command_on_light(new LightRedOff(new LightRed())) : command_on_light(new LightYellowOff(new LightYellow()))
             break
 
-        case "increase":
+        case "increase_receiver":
             result=redOn?command_on_light(new LightRedIncreaseBrightness(new LightRed())):command_on_light(new LightYellowOn(new LightYellow()))
-
             break
 
-        case "decrease":
+        case "decrease_receiver":
             console.log("decrease")
             result =redOn?command_on_light(new LightRedDecreaseBrightness(new LightRed())) : command_on_light(new LightYellowOn(new LightYellow()))
             break
