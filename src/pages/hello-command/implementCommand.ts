@@ -12,7 +12,7 @@ import {
 } from "../../patterns/command/LightCommand";
 let redOn: boolean = false
 
-export function commandOnReciever(command: Command): string {
+export function command_on_light(command: Command): string {
 
     const remoteController = new RemoteController();
     remoteController.setCommand(command)
@@ -27,27 +27,27 @@ export function orderHandler(command: string): string {
 
     switch (command) {
         case "on":
-            result = redOn ? commandOnReciever(new CommandLightRedOn(new LightRed())) : commandOnReciever(new CommandLightOn(new LightYellow()))
+            result = redOn ? command_on_light(new CommandLightRedOn(new LightRed())) : command_on_light(new CommandLightOn(new LightYellow()))
             break;
 
         case "off":
             redOn=false
-            result = redOn ? commandOnReciever(new CommandLightRedOff(new LightRed())) : commandOnReciever(new CommandLightOff(new LightYellow()))
+            result = redOn ? command_on_light(new CommandLightRedOff(new LightRed())) : command_on_light(new CommandLightOff(new LightYellow()))
             break
 
         case "increase":
-            result=redOn?commandOnReciever(new RedLightIncreaseLuminosity(new LightRed())):commandOnReciever(new CommandLightOn(new LightYellow()))
+            result=redOn?command_on_light(new RedLightIncreaseLuminosity(new LightRed())):command_on_light(new CommandLightOn(new LightYellow()))
 
             break
 
         case "decrease":
             console.log("decrease")
-            result =redOn?commandOnReciever(new RedLightDecreaseLuminosity(new LightRed())) : commandOnReciever(new CommandLightOn(new LightYellow()))
+            result =redOn?command_on_light(new RedLightDecreaseLuminosity(new LightRed())) : command_on_light(new CommandLightOn(new LightYellow()))
             break
 
         case "red":
             redOn = true
-            result=redOn?commandOnReciever(new CommandLightRedOn(new LightRed())):commandOnReciever(new CommandLightOn(new LightYellow()))
+            result=redOn?command_on_light(new CommandLightRedOn(new LightRed())):command_on_light(new CommandLightOn(new LightYellow()))
             break
         default:
 
