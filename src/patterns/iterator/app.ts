@@ -5,14 +5,12 @@ import {WeatherDataCollection} from "./Iterator/WeatherDataCollection";
 
 const weatherDataCollection = new WeatherDataCollection();
 
-weatherDataCollection.addCity("Dhaka");
-weatherDataCollection.addCity("Chittagong");
-weatherDataCollection.addCity("Rajshahi");
-weatherDataCollection.addCity("Khulna");
-weatherDataCollection.addCity("Barishal");
-weatherDataCollection.addCity("Sylhet");
-weatherDataCollection.addCity("Mymensingh");
+var cities:string[];
+cities = ["Dhaka","Chittagong","Rajshahi","Barisal","Sylhet", "Khulna"]
 
+cities.forEach(function (value) {
+    weatherDataCollection.addCity(value)
+});
 
 
 

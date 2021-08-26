@@ -2,13 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var WeatherDataCollection_1 = require("./Iterator/WeatherDataCollection");
 var weatherDataCollection = new WeatherDataCollection_1.WeatherDataCollection();
-weatherDataCollection.addCity("Dhaka");
-weatherDataCollection.addCity("Chittagong");
-weatherDataCollection.addCity("Rajshahi");
-weatherDataCollection.addCity("Khulna");
-weatherDataCollection.addCity("Barishal");
-weatherDataCollection.addCity("Sylhet");
-weatherDataCollection.addCity("Mymensingh");
+var alphas;
+alphas = ["Dhaka", "Chittagong", "Rajshahi", "Barisal", "Sylhet", "Khulna"];
+alphas.forEach(function (value) {
+    weatherDataCollection.addCity(value);
+});
 var iterator = weatherDataCollection.getIterator();
 setTimeout(function () {
     while (iterator.hasNext()) {
