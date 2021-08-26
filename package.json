@@ -47,10 +47,12 @@
     "start": "webpack-dev-server --config webpack.config.js --history-api-fallback --content-base public"
   },
   "dependencies": {
+    "@types/node-fetch": "^2.5.12",
     "crypto-js": "^4.0.0",
+    "node-fetch": "^2.6.1",
+    "page": "^1.11.6",
     "ramda": "^0.27.0",
     "svelte": "^3.38.3",
-    "page": "^1.11.6",
     "three": "0.128.0"
   }
 }
