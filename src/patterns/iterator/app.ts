@@ -22,7 +22,7 @@ setTimeout(()=>{
         iterator.advance();
         const data = iterator.current();
         console.log(data.cityName);
-        console.log(data.temperature);
+        console.log(data.temperature-273);
 
     }
 },2000)
