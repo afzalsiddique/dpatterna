@@ -1,6 +1,8 @@
 import {WeatherDataIterator} from "./WeatherDataIterator";
 
+const APIKEY=`&appid=9dd687e56990c001e77aa23b2db5ab5c`
 import {WeatherData} from "./WeatherData";
+import loadJSON from "../loadJson";
 
 
 export class WeatherDataCollection{
@@ -19,5 +21,9 @@ export class WeatherDataCollection{
        return new WeatherDataIterator(this.items);
     }
 
-
+    public addCity(cityName:string){
+        loadJSON(`https://api.openweathermap.org/data/2.5/weather?q=`+cityName+APIKEY).then(data=>{
+        this.addItem(new WeatherData(data.name,data.main.temp));
+    })
+    }
 }
